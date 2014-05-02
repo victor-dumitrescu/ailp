@@ -1,0 +1,31 @@
+arg [hasMoney cheapFlight availableRooms] [personalEmergency] vacation 0.8
+arg [receiveSalary getTaxRefund] [] getMoney 0.9
+arg [getMoney] [personalEmergency rentDue unexpectedExpense] hasMoney 0.8
+arg [] [holidaySeason] cheapFlight 0.5
+arg [] [holidaySeason] availableRooms 0.7
+arg [endOfMonth] [] receiveSalary 0.8
+arg [endOfMonth] [paidRentInAdvance] rentDue 0.7
+arg [sickLeave familyEvent] [] personalEmergency 0.6
+
+assumptions [endOfMonth paidRentInAdvance getTaxRefund availableRooms]
+
+standard vacation preponderance
+standard _ scintilla
+
+applicable getMoney
+applicable cheapFlight
+applicable vacation
+
+acceptable vacation
+
+
+
+***Results of the queries defined above:
+
+Applicability queiries:
+("getMoney",[["receiveSalary","getTaxRefund"] ~[]=>"getMoney"])
+("cheapFlight",[[] ~["holidaySeason"]=>"cheapFlight"])
+("vacation",[["hasMoney","cheapFlight","availableRooms"] ~["personalEmergency"]=>"vacation"])
+
+Acceptability queiries:
+("vacation",True)

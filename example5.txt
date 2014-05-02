@@ -1,0 +1,29 @@
+arg [healthy clubRegistration paidMembershipFees] [doping] canCompete 0.8
+arg [medicalCheck] [relevantMedicalHistory] healthy 0.7
+arg [paymentCheck] [paymentNotYetProcessed] paidMembershipFees 0.7
+arg [bloodSampleClear urineSampleClear] [foundWithDopingDrugs] -doping 0.8
+arg [foundWithDopingDrugs eyewitnessConsumption] [] doping 0.6
+
+assumptions [medicalCheck paymentCheck bloodSampleClear urineSampleClear foundWithDopingDrugs clubRegistration]
+
+standard canCompete dialectical_validity
+standard doping beyond_reasonable_doubt
+standard -doping beyond_reasonable_doubt
+standard healthy preponderance
+standard _ scintilla
+
+applicable doping
+
+acceptable doping
+acceptable canCompete
+
+
+
+***Results of the queries defined above:
+
+Applicability queiries:
+("doping",[])
+
+Acceptability queiries:
+("doping",False)
+("canCompete",True)

@@ -1,0 +1,29 @@
+arg [investor emptySpace needForOfficeSpace] [localsDisagree] buildSkyscraper 0.7
+arg [demolition] [publicGardens archaeologicalSite] emptySpace 0.8
+arg [populationGrowth economicGrowth] [globalRecession] expandingTown 0.8
+arg [expandingTown] [] needForOfficeSpace 0.5
+arg [investor] [] economicGrowth 0.3
+
+assumptions [investor populationGrowth localsDisagree globalRecession demolition]
+
+standard expandingTown preponderance
+standard buildSkyscraper clear_and_convincing
+standard _ scintilla
+
+applicable expandingTown
+applicable emptySpace
+
+acceptable expandingTown
+acceptable buildSkyscraper
+
+
+
+***Results of the queries defined above:
+
+Applicability queiries:
+("expandingTown",[])
+("emptySpace",[["demolition"] ~["publicGardens","archaeologicalSite"]=>"emptySpace"])
+
+Acceptability queiries:
+("expandingTown",False)
+("buildSkyscraper",False)

@@ -1,0 +1,29 @@
+arg [relevantExperience goodCV goodInterview] [workRightsRestriction] hire 0.9
+arg [moreThan5YearsWork recentWork] [] relevantExperience 0.8
+arg [moreThan3YearsWork recentWork] [partTimeWork] relevantExperience 0.5
+arg [EUcitizen] [] -workRightsRestriction 0.9
+arg [-EUcitizen] [workVisa] workRightsRestriction 0.8
+arg [relevantExperience goodDegree] [] goodCV 0.6
+
+assumptions [workVisa moreThan3YearsWork recentWork goodDegree goodInterview]
+
+
+standard hire dialectical_validity
+standard relevantExperience preponderance
+standard _ scintilla
+
+applicable workRightsRestriction
+applicable relevantExperience
+
+acceptable hire
+
+
+
+***Results of the queries defined above:
+
+Applicability queiries:
+("workRightsRestriction",[])
+("relevantExperience",[["moreThan3YearsWork","recentWork"] ~["partTimeWork"]=>"relevantExperience"])
+
+Acceptability queiries:
+("hire",True)

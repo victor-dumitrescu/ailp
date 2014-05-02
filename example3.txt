@@ -1,0 +1,28 @@
+arg [study attendClasses doCoursework] [unforseenCircumstances] pass 0.7
+arg [freeTime] [partTimeWork procrastinate goToPub] doCoursework 0.8
+arg [freeTime] [partTimeWork procrastinate skiTrip] study 0.6
+arg [freeTime hasMoney] [] goToPub 0.1
+arg [freeTime hasMoney] [unforseenCircumstances] skiTrip 0.3
+arg [partTimeWork] [] hasMoney 0.8
+
+assumptions [attendClasses freeTime partTimeWork]
+
+standard doCoursework clear_and_convincing
+standard study preponderance
+standard _ scintilla
+
+applicable goToPub
+applicable study
+
+acceptable pass
+
+
+
+***Results of the queries defined above:
+
+Applicability queiries:
+("goToPub",[["freeTime","hasMoney"] ~[]=>"goToPub"])
+("study",[])
+
+Acceptability queiries:
+("pass",False)
